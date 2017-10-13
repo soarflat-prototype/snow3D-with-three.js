@@ -4,6 +4,8 @@ const path = require('path');
 module.exports = {
   entry: {
     'getting-started/gettingStarted': './src/gettingStarted',
+    'sprite/sprite': './src/sprite',
+    'snow-3d/snow3D': './src/snow3D',
   },
   output: {
     filename: '[name].js',
