@@ -1,0 +1,21 @@
+{
+  "name": "snow3D-with-three.js",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --no-info --content-base docs/",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "author": "soarflat",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "cross-env": "^5.0.5",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.8.1"
+  },
+  "dependencies": {
+    "three": "^0.87.1"
+  }
+}
