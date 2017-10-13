@@ -6,6 +6,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+camera.position.z = 5;
+
 // Spriteを作成し、シーンに追加してみる
 // Sprite常にカメラの方を向いている平面で、一般的に部分的に透明なテクスチャが適用される
 // 文字などを常に見えるように表示したい時にも利用されていた
@@ -19,8 +21,6 @@ const spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xfffff
 // Spriteを作成する
 const sprite = new THREE.Sprite(spriteMaterial);
 scene.add(sprite);
-
-camera.position.z = 5;
 
 const animate = () => {
   requestAnimationFrame(animate);
