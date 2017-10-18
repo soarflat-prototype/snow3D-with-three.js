@@ -13,15 +13,16 @@ scene = new THREE.Scene();
 camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
 renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById('snow').appendChild(renderer.domElement);
 
-camera.position.z = 5;
+camera.position.z = 1000;
 
 const spriteMap = new THREE.TextureLoader().load('snow.png');
 const spriteMaterial = new THREE.SpriteMaterial({ map: spriteMap, color: 0xffffff });
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 300; i++) {
   const particle = new Particle3D(spriteMaterial);
+  particle.scale.x = particle.scale.y = 20;
   scene.add(particle);
   particles.push(particle);
 }
