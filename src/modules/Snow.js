@@ -1,30 +1,31 @@
-import THREE from 'three';
+import * as THREE from 'three';
 
-class Snow {
+// const TO_RADIANS = Math.PI / 180;
+
+export default class Snow extends THREE.Sprite {
   constructor(material) {
+    super(material);
+    this.velocity = new THREE.Vector3(0, -8, 0);
+    // this.velocity.rotateX = rotateX.bind(this);
+    // this.velocity.rotateY = rotateY.bind(this);
+    // // this.velocity.rotateX(randomRange(-45, 45));
+    // // this.velocity.rotateY(randomRange(0, 360));
+    this.gravity = new THREE.Vector3(0, 0, 0);
+    this.position.set(
+      Math.random() * 2000 - 1000,
+      Math.random() * 2000 - 1000,
+      Math.random() * 2000 - 1000,
+    );
+    this.drag = 1;
+  }
 
+  updatePhysics() {
+    this.velocity.multiplyScalar(this.drag);
+    this.velocity.add(this.gravity);
+    this.position.add(this.velocity);
   }
 }
 
-//
-// Particle3D = function(material) {
-//   NOTE: THREE.ParticleはTHREE.Spriteに名前が変わってた
-//
-//   THREE.Particle.call(this, material);
-//   this.velocity = new THREE.Vector3(0,-8,0);
-//   this.velocity.rotateX(randomRange(-45, 45));
-//   this.velocity.rotateY(randomRange(0, 360));
-//   this.gravity = new THREE.Vector3(0,0,0);
-//   this.drag = 1;
-// }
-// ;
-// Particle3D.prototype = new THREE.Particle();
-// Particle3D.prototype.constructor = Particle3D;
-// Particle3D.prototype.updatePhysics = function() {
-//   this.velocity.multiplyScalar(this.drag);
-//   this.velocity.addSelf(this.gravity);
-//   this.position.addSelf(this.velocity);
-// }
 // var TO_RADIANS = Math.PI / 180;
 // THREE.Vector3.prototype.rotateY = function(angle) {
 //   cosRY = Math.cos(angle * TO_RADIANS);
